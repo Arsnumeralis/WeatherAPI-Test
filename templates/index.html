@@ -5,23 +5,44 @@
     </head>
     <body>
         <h1>Global Weather Information</h1>
-        <p>Please select a city.</p>
 
         <form method="POST", action="/">
-            <input type="submit" value="London" name="button">
-            <input type="submit" value="Paris" name="button">
-            <input type="submit" value="New York" name="button">
-            <input type="submit" value="Delhi" name="button">
-            <input type="submit" value="Tokyo" name="button">
+            <label for="city_select">Please select a city:</label>
+            <select id="city_select", name="city_select">
+                <option value="London">London</option>
+                <option value="Paris">Paris</option>
+                <option value="New York">New York</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Tokyo">Tokyo</option>
+                <input type="submit" value="Submit">
+            </select>
         </form>
         <br>
         {% if display_data != None %}
-        <p>City - {{ display_data["current_city"] }}</p>
-        <p>Current temperature - {{ display_data["current_temp"] }} </p>
-        <p>Humidity - {{ display_data["humidity"] }}</p>
-        <p>Description - {{ display_data["description"] }}</p>
-        <p>Lowest temperature - {{ display_data["min_temp"] }}</p>
-        <p>Highest temperature - {{ display_data["max_temp"] }}</p>
+        <h2>{{ display_data["current_city"] }}</h2>
+        <table>
+        <tbody>
+        <tr>
+            <td>Current temperature</td>
+            <td> {{ display_data["current_temp"] }} </td></tr>
+        <tr>
+            <td>Humidity</td>
+            <td> {{ display_data["humidity"] }}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td> {{ display_data["description"] }}</td>
+        </tr>
+        <tr>
+            <td>Lowest temperature</td>
+            <td> {{ display_data["min_temp"] }}</td>
+        </tr>
+        <tr>
+            <td>Highest temperature</td>
+            <td> {{ display_data["max_temp"] }}</td>
+        </tr>
+        </tbody>
+        </table>
         {% endif %}
     </body>
 </html>
