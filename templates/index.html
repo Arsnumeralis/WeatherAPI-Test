@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather API Test</title>
+    </head>
+    <body>
+        <h1>Global Weather Information</h1>
+        <p>Please select a city.</p>
+
+        <form method="POST", action="/">
+            <input type="submit" value="London" name="button">
+            <input type="submit" value="Paris" name="button">
+            <input type="submit" value="New York" name="button">
+            <input type="submit" value="Delhi" name="button">
+            <input type="submit" value="Tokyo" name="button">
+        </form>
+        <br>
+        {% if display_data != None %}
+        <p>City - {{ display_data["current_city"] }}</p>
+        <p>Current temperature - {{ display_data["current_temp"] }} </p>
+        <p>Humidity - {{ display_data["humidity"] }}</p>
+        <p>Description - {{ display_data["description"] }}</p>
+        <p>Lowest temperature - {{ display_data["min_temp"] }}</p>
+        <p>Highest temperature - {{ display_data["max_temp"] }}</p>
+        {% endif %}
+    </body>
+</html>
