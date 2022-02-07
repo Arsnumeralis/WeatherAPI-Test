@@ -162,7 +162,7 @@ if __name__ == "__main__":
                 close_down(api_driver)
                 continue
             #ensuring humidity value doesn't have % at the end
-            if abs(int(api_data[2][-3:-2]) - int(web_data[1][1][-3:-2])) > 1:
+            if abs(int(api_data[2][-3:-2]) - int(web_data[1][1][-4:-2])) > 1:
                 print(f"T{idx + 7} FAILED - humidity discrepancy too high")
                 tested.append(f"T{idx + 7} FAILED - humidity discrepancy too high")
                 close_down(api_driver)
@@ -180,6 +180,13 @@ if __name__ == "__main__":
         """)
         print(*tested, sep = "\n")
     except:
+        close_down(driver)
+        close_down(api_driver)
+        print("""
+        \n
+        \n
+        \n
+        """)
         print("software error prevented from testing being fully complete")
         print(*tested, sep = "\n")
 
