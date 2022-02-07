@@ -64,7 +64,7 @@ if __name__ == "__main__":
         print("T1 FAILED")
         tested.append("T01 FAILED")
     
-
+    #funtion to make a weather query on the webpage
     def test_case_query(city_id):
         selection1 = driver.find_element_by_id("city_select")
         selection1.click()
@@ -75,6 +75,7 @@ if __name__ == "__main__":
         submission = driver.find_element_by_id("sub")
         return submission.click()
 
+    #function to collect the data from webpage
     def test_case_data_collection(display_data = None):
         if display_data == None:
             display_data = []
@@ -86,12 +87,14 @@ if __name__ == "__main__":
         display_data.append([item.text for item in table.find_elements_by_xpath("/html/body/table/tbody/tr")])
         return display_data
 
+    #function to collect the data from api
     def api_data_collection(api_data = None):
         if api_data == None:
             api_data = []
         city_name = api_driver.find_element_by_xpath("/html/body/div[1]")
         api_data.append(city_name.text)
         temp_value = api_driver.find_element_by_xpath("/html/body/div[2]/div[1]/div[2]/div[1]")
+        #ensuring the temp value doesn't have °C
         api_data.append(temp_value.text[-7:-3])
         humidity_value = api_driver.find_element_by_xpath("/html/body/div[2]/div[3]")
         api_data.append(humidity_value.text)
@@ -138,11 +141,15 @@ if __name__ == "__main__":
             web_data = None
             api_data = None
             city_id = cities[city]["api_id"]
+            #accessing the api in html format
             api_url = f"https://api.openweathermap.org/data/2.5/weather?id={city_id}&appid={api_key}&mode=html"
             api_driver = launcher(api_url)
             test_case_query(cities[city]["html_id"])
+            #scraping webpage data
             web_data = test_case_data_collection()
+            #scraping api data
             api_data = api_data_collection()
+            #comparing city name, temperature and humidity between webpage and api
             if city != api_data[0]:
                 print(f"T{idx + 7} FAILED - city name incorrect")
                 tested.append(f"T{idx + 7} FAILED - city name incorrect")
@@ -153,6 +160,7 @@ if __name__ == "__main__":
                 tested.append(f"T{idx + 7} FAILED - temperature discrepancy too high")
                 close_down(api_driver)
                 continue
+            #ensuring humidity value doesn't have % at the end
             if abs(int(api_data[2][-3:-2]) - int(web_data[1][1][-3:-2])) > 1:
                 print(f"T{idx + 7} FAILED - humidity discrepancy too high")
                 tested.append(f"T{idx + 7} FAILED - humidity discrepancy too high")
