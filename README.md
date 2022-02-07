@@ -7,11 +7,11 @@ Weather API test for Twenty7Tec Junior Automation QA Tester application
 2. Clone this repository onto the machine.
 3. I recommend using a virtual environment when running the app and tests.
 4. Type "pip install -r requirements.txt" into the command line when you are located in the repository's main directory.
-5. To run the app on local host type "flask run" into the command line. If you wish for external IPs to be able to access the app, you can specify the host and port with additional "--host=" and "--port=" respectively.
+5. To run the app on local host type "python app.py" and enter the api key as an argument.
 
 ## Testing:
 
-To run the tests, you will have to open an additional terminal instance to keep the app going. On the new terminal change directory to ./tests/ and launch tests.py. Test results will be output onto the command line as the testing continues and will be summarised at the end in a list.
+To run the tests, you will have to open an additional terminal instance to keep the app going. On the new terminal change directory to ./tests/ and launch tests.py with the api key as an argument. Test results will be output onto the command line as the testing continues and will be summarised at the end in a list.
 
 ## Tools used:
 
