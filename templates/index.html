@@ -20,27 +20,27 @@
         <br>
         <!-- if statement preventing the page from trying to display nonexistent data -->
         {% if display_data != None %}
-        <h2>{{ display_data["current_city"] }}</h2>
-        <table>
+        <h2 id="city_name">{{ display_data["current_city"] }}</h2>
+        <table id="tab">
         <tbody>
         <tr>
-            <td>Current temperature</td>
-            <td> {{ display_data["current_temp"] }} </td></tr>
+            <td>Current temperature:</td>
+            <td name="info", id="1"> {{ display_data["current_temp"] }} </td></tr>
         <tr>
-            <td>Humidity</td>
-            <td> {{ display_data["humidity"] }}</td>
+            <td>Humidity:</td>
+            <td name="info", id="2"> {{ display_data["humidity"] }}</td>
         </tr>
         <tr>
-            <td>Description</td>
-            <td> {{ display_data["description"] }}</td>
+            <td>Description:</td>
+            <td name="info", id="3"> {{ display_data["description"] }}</td>
         </tr>
         <tr>
-            <td>Lowest temperature</td>
-            <td> {{ display_data["min_temp"] }}</td>
+            <td>Lowest temperature:</td>
+            <td name="info", id="4"> {{ display_data["min_temp"] }}</td>
         </tr>
         <tr>
-            <td>Highest temperature</td>
-            <td> {{ display_data["max_temp"] }}</td>
+            <td>Highest temperature:</td>
+            <td name="info", id="5"> {{ display_data["max_temp"] }}</td>
         </tr>
         </tbody>
         </table>
