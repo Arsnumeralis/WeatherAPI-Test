@@ -5,19 +5,20 @@
     </head>
     <body>
         <h1>Global Weather Information</h1>
-
+<!-- form for posting user action to the python backend -->
         <form method="POST", action="/">
             <label for="city_select">Please select a city:</label>
             <select id="city_select", name="city_select">
-                <option value="London">London</option>
-                <option value="Paris">Paris</option>
-                <option value="New York">New York</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Tokyo">Tokyo</option>
-                <input type="submit" value="Submit">
+                <option id="lnd", value="London">London</option>
+                <option id="par", value="Paris">Paris</option>
+                <option id="nyc", value="New York">New York</option>
+                <option id="del", value="Delhi">Delhi</option>
+                <option id="tok", value="Tokyo">Tokyo</option>
+                <input id="sub", type="submit" value="Submit">
             </select>
         </form>
         <br>
+        <!-- if statement preventing the page from trying to display nonexistent data -->
         {% if display_data != None %}
         <h2>{{ display_data["current_city"] }}</h2>
         <table>
