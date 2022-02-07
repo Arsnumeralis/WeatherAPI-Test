@@ -56,7 +56,7 @@ if __name__ == "__main__":
     def close_down(driver):
         driver.close()
 
-    #if no error, t01 passed.
+    #if no error, t01 passed. Assuming the app is run on local host.
     driver = launcher(r"http://127.0.0.1:5000/")
     if driver:
         print("T1 PASSED")
