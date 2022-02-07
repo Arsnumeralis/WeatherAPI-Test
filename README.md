@@ -18,3 +18,5 @@ To run the tests, you will have to open an additional terminal instance to keep 
 1. Flask (Python library) for webhosting.
 2. Selenium (Python library) for test automation and web scraping.
 3. VSCode Thunderclient for manually calling APIs.
+
+Future implementation of unittest framework should made test output more user-friendly.
