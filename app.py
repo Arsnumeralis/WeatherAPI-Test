@@ -32,7 +32,7 @@ def Homepage():
             "language":"ja"
         },
     }
-    api_key = "9d50450a48809637b4862bdcb125927d"
+    api_key = sys.argv[1]
     if request.method == "POST":
         city = request.form["city_select"]
         #below requests data from the weather api, converts it into a JSON object, relevant parts of which can then be displayed on the html

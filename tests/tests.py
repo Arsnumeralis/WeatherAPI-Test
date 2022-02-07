@@ -4,10 +4,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+import sys
 
 if __name__ == "__main__":
     #data for querying cities
-    api_key = "9d50450a48809637b4862bdcb125927d"
+    api_key = sys.argv[1]
     cities = {
         "London": {
             "name":"London",
