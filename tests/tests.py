@@ -155,7 +155,7 @@ if __name__ == "__main__":
                 tested.append(f"T{idx + 7} FAILED - city name incorrect")
                 close_down(api_driver)
                 continue
-            if abs(float(api_data[1]) - float(web_data[1][0][-6:-3])) > 1:
+            if abs(float(api_data[1]) - float(web_data[1][0][-7:-3])) > 1:
                 print(f"T{idx + 7} FAILED - temperature discrepancy too high")
                 tested.append(f"T{idx + 7} FAILED - temperature discrepancy too high")
                 close_down(api_driver)
